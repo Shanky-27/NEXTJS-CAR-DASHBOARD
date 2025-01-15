@@ -64,7 +64,7 @@ export default async function Page() {
         <CardBody>
           <div className="d-flex justify-content-between">
             <div>
-              <h4 className="mb-0">{dict.dashboard.traffic.analysis}</h4>
+              <h4 className="mb-0">Analysis</h4>
               <div className="small text-black-50 dark:text-gray-500">{dict.dashboard.traffic.duration}</div>
             </div>
             <div className="d-none d-md-block">

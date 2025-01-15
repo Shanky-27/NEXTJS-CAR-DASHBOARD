@@ -272,6 +272,8 @@
   },
   "sidebar": {
     "items": {
+      "calculations": "分析",
+      "analysis": "分析",
       "dashboard": "ダッシュボード",
       "sample": "サンプル",
       "theme": "テーマ",

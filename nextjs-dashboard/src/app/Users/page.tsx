@@ -1,39 +1,51 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import * as XLSX from 'xlsx';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState } from "react";
+import * as XLSX from "xlsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCar,
   faChargingStation,
   faGasPump,
   faGear,
   faHandRock,
-} from '@fortawesome/free-solid-svg-icons';
-import { ProgressBar } from 'react-bootstrap';
+} from "@fortawesome/free-solid-svg-icons";
+import { ProgressBar } from "react-bootstrap";
 
-const getProgressBarVariant = (value, max) => {
-  const percentage = (value / max) * 100;
-  if (percentage < 33) return 'success'; // Low
-  if (percentage < 66) return 'warning'; // Mid
-  return 'danger'; // High
+// Define the type for car data
+type CarData = {
+  Name: string;
+  "Car model": string;
+  "Transmission type": string;
+  "fuel type": string;
+  min: number;
+  max: number;
+  Average: number;
+  emission: number;
 };
 
-const renderFuelIcon = (fuel) => {
+const getProgressBarVariant = (value: number, max: number) => {
+  const percentage = (value / max) * 100;
+  if (percentage < 33) return "success"; // Low
+  if (percentage < 66) return "warning"; // Mid
+  return "danger"; // High
+};
+
+const renderFuelIcon = (fuel: string) => {
   switch (fuel) {
-    case 'petrol':
+    case "petrol":
       return <FontAwesomeIcon icon={faGasPump} />;
-    case 'diesel':
+    case "diesel":
       return <FontAwesomeIcon icon={faCar} />;
-    case 'ev':
+    case "ev":
       return <FontAwesomeIcon icon={faChargingStation} />;
     default:
       return null;
   }
 };
 
-const renderTransmissionIcon = (transmission) => {
-  return transmission === 'auto' ? (
+const renderTransmissionIcon = (transmission: string) => {
+  return transmission === "auto" ? (
     <FontAwesomeIcon icon={faGear} />
   ) : (
     <FontAwesomeIcon icon={faHandRock} />
@@ -41,25 +53,25 @@ const renderTransmissionIcon = (transmission) => {
 };
 
 export default function Page() {
-  const [carData, setCarData] = useState([]);
-  const [error, setError] = useState(null);
+  const [carData, setCarData] = useState<CarData[]>([]); // Use the defined type
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/Book1.xlsx');
-        if (!response.ok) throw new Error('Failed to fetch the file');
+        const response = await fetch("/Book1.xlsx");
+        if (!response.ok) throw new Error("Failed to fetch the file");
 
         const data = await response.arrayBuffer();
         const workbook = XLSX.read(data);
         const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-        const jsonData = XLSX.utils.sheet_to_json(worksheet);
+        const jsonData: CarData[] = XLSX.utils.sheet_to_json(worksheet);
 
         console.log(jsonData); // Log to check the data structure
         setCarData(jsonData);
       } catch (error) {
-        console.error('Error fetching or processing the Excel file:', error);
-        setError(error.message);
+        console.error("Error fetching or processing the Excel file:", error);
+        setError((error as Error).message);
       }
     };
 
@@ -89,45 +101,46 @@ export default function Page() {
               carData.map((car, index) => (
                 <tr key={index} className="align-middle">
                   <td>{car.Name}</td>
-                  <td>{car['Car model']}</td>
+                  <td>{car["Car model"]}</td>
                   <td>
                     <div className="d-flex align-items-center">
-                      {renderTransmissionIcon(car['Transmission type'])}
-                      <span className="ms-2">{car['Transmission type']}</span>
+                      {renderTransmissionIcon(car["Transmission type"])}
+                      <span className="ms-2">{car["Transmission type"]}</span>
                     </div>
                   </td>
                   <td>
                     <div className="d-flex align-items-center">
-                      {renderFuelIcon(car['fuel type'])}
-                      <span className="ms-2">{car['fuel type']}</span>
+                      {renderFuelIcon(car["fuel type"])}
+                      <span className="ms-2">{car["fuel type"]}</span>
                     </div>
                   </td>
                   <td>{car.min}</td>
                   <td>{car.max}</td>
                   <td>
-                    {typeof car.Average === 'number' && !isNaN(car.Average) ? (
+                    {typeof car.Average === "number" && !isNaN(car.Average) ? (
                       <ProgressBar
                         now={(car.Average / 20) * 100} // Assuming max average is 20
                         variant={getProgressBarVariant(car.Average, 20)}
                         label={`${car.Average}`}
                       />
                     ) : (
-                      <span>{car.Average || 'N/A'}</span>
+                      <span>{car.Average || "N/A"}</span>
                     )}
                   </td>
                   <td>
-                    
                     <ProgressBar
-                      now={(car.emission || 0) / 100 * 100} // Assuming max emission is 100 for visualization
-                      variant={getProgressBarVariant(car.emission || 0, 100)}
-                      label={`${car.emission || 0}`}
+                      now={(car.emission / 100) * 100} // Assuming max emission is 100 for visualization
+                      variant={getProgressBarVariant(car.emission, 100)}
+                      label={`${car.emission}`}
                     />
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="8" className="text-center">No data available</td>
+                <td colSpan={8} className="text-center">
+                  No data available
+                </td>
               </tr>
             )}
           </tbody>

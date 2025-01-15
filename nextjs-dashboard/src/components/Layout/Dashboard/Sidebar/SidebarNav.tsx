@@ -24,13 +24,13 @@ export default async function SidebarNav() {
     <ul className="list-unstyled">
       <SidebarNavTitle>{dict.sidebar.items.dashboard}</SidebarNavTitle>
       <SidebarNavItem icon={faHome} href="/">Homepage</SidebarNavItem> {/* Link to the main page */}
-      <SidebarNavItem icon={faDroplet} href="./Users">{dict.sidebar.items.analysis}Survey Data</SidebarNavItem>
-      <SidebarNavItem icon={faCalculator} href="./Analysis">{dict.sidebar.items.calculation}Analysis</SidebarNavItem>
+      <SidebarNavItem icon={faDroplet} href="./Users">Survey Data</SidebarNavItem>
+      <SidebarNavItem icon={faCalculator} href="./Analysis">Analysis</SidebarNavItem>
 
-      <SidebarNavTitle>{dict.sidebar.items.solutions}Solutions</SidebarNavTitle>
-      <SidebarNavItem icon={faChartPie} href="./solution_1">{dict.sidebar.items.solution}Solution 1</SidebarNavItem>
-      <SidebarNavItem icon={faChartPie} href="./solution_2">{dict.sidebar.items.solution}Solution 2</SidebarNavItem>
-      <SidebarNavItem icon={faChartPie} href="./solution_3">{dict.sidebar.items.solution}Solution 3</SidebarNavItem>
+      <SidebarNavTitle>Solutions</SidebarNavTitle>
+      <SidebarNavItem icon={faChartPie} href="./solution_1">Solution 1</SidebarNavItem>
+      <SidebarNavItem icon={faChartPie} href="./solution_2">Solution 2</SidebarNavItem>
+      <SidebarNavItem icon={faChartPie} href="./solution_3">Solution 3</SidebarNavItem>
     </ul>
   );
 }
