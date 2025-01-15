@@ -1,71 +1,38 @@
-import Image from 'next/image'
-import mahindraLogo from './mahindra-logo.webp';
-import marutisuzukiLogo from './maruti-suzuki-logo.jpg';
-import tataLogo from'./tata-logo.jpeg';
-
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowDown,
-  faArrowUp,
-  faCarAlt,
   faCarBattery,
-  faCarOn,
   faChargingStation,
   faDownload,
-  faEllipsisVertical,
   faGasPump,
-  faGaugeSimple,
-  faHouseChimneyMedical,
   faMars,
-  faRecycle,
-  faSearch,
-  faUsers,
   faVenus,
-} from '@fortawesome/free-solid-svg-icons'
+} from "@fortawesome/free-solid-svg-icons";
 import {
   Button,
   ButtonGroup,
   Card,
   CardBody,
-  CardFooter,
   CardHeader,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
   ProgressBar,
-} from 'react-bootstrap'
-import {
-  faCcAmex,
-  faCcApplePay,
-  faCcPaypal,
-  faCcStripe,
-  faCcVisa,
-  faFacebookF,
-  faLinkedinIn,
-  faTwitter,
-} from '@fortawesome/free-brands-svg-icons'
-import React from 'react'
-import UserChart from '@/components/Page/Dashboard/UserChart'
-import IncomeChart from '@/components/Page/Dashboard/IncomeChart'
-import ConversionChart from '@/components/Page/Dashboard/ConversionChart'
-import SessionChart from '@/components/Page/Dashboard/SessionChart'
-import TrafficChart from '@/components/Page/Dashboard/TrafficChart'
-import { getDictionary } from '@/locales/dictionary'
-
+} from "react-bootstrap";
+import React from "react";
+import { getDictionary } from "@/locales/dictionary";
+import Image from "next/image";
+import mahindraLogo from "./mahindra-logo.webp";
+import marutisuzukiLogo from "./maruti-suzuki-logo.jpg";
+import tataLogo from "./tata-logo.jpeg";
 export default async function Page() {
-  const dict = await getDictionary()
-
+  const dict = await getDictionary();
   return (
     <div>
-
       <Card className="mb-4">
         <CardBody>
           <div className="d-flex justify-content-between">
             <div>
               <h4 className="mb-0">Analysis</h4>
-              <div className="small text-black-50 dark:text-gray-500">{dict.dashboard.traffic.duration}</div>
+              <div className="small text-black-50 dark:text-gray-500">
+                {dict.dashboard.traffic.duration}
+              </div>
             </div>
             <div className="d-none d-md-block">
               <ButtonGroup aria-label="Toolbar with buttons" className="mx-3">
@@ -76,10 +43,7 @@ export default async function Page() {
                   name="options"
                   autoComplete="off"
                 />
-                <label
-                  className="btn btn-outline-secondary"
-                  htmlFor="option1"
-                >
+                <label className="btn btn-outline-secondary" htmlFor="option1">
                   {dict.dashboard.traffic.option.day}
                 </label>
                 <input
@@ -103,10 +67,7 @@ export default async function Page() {
                   name="options"
                   autoComplete="off"
                 />
-                <label
-                  className="btn btn-outline-secondary"
-                  htmlFor="option3"
-                >
+                <label className="btn btn-outline-secondary" htmlFor="option3">
                   {dict.dashboard.traffic.option.year}
                 </label>
               </ButtonGroup>
@@ -116,25 +77,21 @@ export default async function Page() {
             </div>
           </div>
         </CardBody>
-        
       </Card>
-
       <div className="row">
         <div className="col-sm-6 col-lg-4">
           <Card
             className="mb-4"
-            style={{ '--bs-card-cap-bg': '#3b5998' } as React.CSSProperties}
+            style={{ "--bs-card-cap-bg": "#3b5998" } as React.CSSProperties}
           >
             <CardHeader className="d-flex justify-content-center align-items-center">
-            <Image 
-  src={mahindraLogo} 
-  alt="Mahindra Logo"
-  className="my-4"
-  width={100}  
-  height={100}
-
-/>
-
+              <Image
+                src={mahindraLogo}
+                alt="Mahindra Logo"
+                className="my-4"
+                width={100}
+                height={100}
+              />
             </CardHeader>
             <CardBody>
               <div className="row text-center">
@@ -155,21 +112,19 @@ export default async function Page() {
             </CardBody>
           </Card>
         </div>
-
         <div className="col-sm-6 col-lg-4">
           <Card
             className="mb-4"
-            style={{ '--bs-card-cap-bg': '#00aced' } as React.CSSProperties}
+            style={{ "--bs-card-cap-bg": "#00aced" } as React.CSSProperties}
           >
             <CardHeader className="d-flex justify-content-center align-items-center">
-            <Image 
-  src={marutisuzukiLogo} 
-  alt="Maruti Suzuki Logo"
-  className="my-4"
-  width={100}  
-  height={100}
-
-/>
+              <Image
+                src={marutisuzukiLogo}
+                alt="Maruti Suzuki Logo"
+                className="my-4"
+                width={100}
+                height={100}
+              />
             </CardHeader>
             <CardBody>
               <div className="row text-center">
@@ -190,21 +145,19 @@ export default async function Page() {
             </CardBody>
           </Card>
         </div>
-
         <div className="col-sm-6 col-lg-4">
           <Card
             className="mb-4"
-            style={{ '--bs-card-cap-bg': '#4875b4' } as React.CSSProperties}
+            style={{ "--bs-card-cap-bg": "#4875b4" } as React.CSSProperties}
           >
             <CardHeader className="d-flex justify-content-center align-items-center">
-            <Image 
-  src={tataLogo} 
-  alt="Tata Logo"
-  className="my-4"
-  width={100}  
-  height={100}
-
-/>
+              <Image
+                src={tataLogo}
+                alt="Tata Logo"
+                className="my-4"
+                width={100}
+                height={100}
+              />
             </CardHeader>
             <CardBody>
               <div className="row text-center">
@@ -225,15 +178,11 @@ export default async function Page() {
             </CardBody>
           </Card>
         </div>
-
       </div>
-
       <div className="row">
         <div className="col-md-12">
           <Card>
-            <CardHeader>
-              {dict.dashboard.sales.title}
-            </CardHeader>
+            <CardHeader>{dict.dashboard.sales.title}</CardHeader>
             <CardBody>
               <div className="row">
                 <div className="col-sm-6">
@@ -246,7 +195,6 @@ export default async function Page() {
                         <div className="fs-5 fw-semibold">9 HR</div>
                       </div>
                     </div>
-
                     <div className="col-6">
                       <div className="border-start border-4 border-danger px-3 mb-3">
                         <small className="text-black-50 dark:text-gray-500">
@@ -255,11 +203,8 @@ export default async function Page() {
                         <div className="fs-5 fw-semibold">22 HR</div>
                       </div>
                     </div>
-
                   </div>
-
                   <hr className="mt-0" />
-
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 dark:text-gray-500 small">
@@ -279,7 +224,6 @@ export default async function Page() {
                       />
                     </div>
                   </div>
-
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 dark:text-gray-500 small">
@@ -299,7 +243,6 @@ export default async function Page() {
                       />
                     </div>
                   </div>
-
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 dark:text-gray-500 small">
@@ -319,7 +262,6 @@ export default async function Page() {
                       />
                     </div>
                   </div>
-
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 dark:text-gray-500 small">
@@ -339,7 +281,6 @@ export default async function Page() {
                       />
                     </div>
                   </div>
-
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 dark:text-gray-500 small">
@@ -359,7 +300,6 @@ export default async function Page() {
                       />
                     </div>
                   </div>
-
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 dark:text-gray-500 small">
@@ -379,7 +319,6 @@ export default async function Page() {
                       />
                     </div>
                   </div>
-
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 dark:text-gray-500 small">
@@ -400,7 +339,6 @@ export default async function Page() {
                     </div>
                   </div>
                 </div>
-
                 <div className="col-sm-6">
                   <div className="row">
                     <div className="col-6">
@@ -411,7 +349,6 @@ export default async function Page() {
                         <div className="fs-5 fw-semibold">150</div>
                       </div>
                     </div>
-
                     <div className="col-6">
                       <div className="border-start border-4 border-success px-3 mb-3">
                         <small className="text-black-50 dark:text-gray-500">
@@ -420,16 +357,17 @@ export default async function Page() {
                         <div className="fs-5 fw-semibold">4</div>
                       </div>
                     </div>
-
                   </div>
-
                   <hr className="mt-0" />
-
                   <div className="mb-5">
                     <div className="mb-3">
                       <div className="d-flex mb-1">
                         <div>
-                          <FontAwesomeIcon className="me-2" icon={faMars} fixedWidth />
+                          <FontAwesomeIcon
+                            className="me-2"
+                            icon={faMars}
+                            fixedWidth
+                          />
                           {dict.dashboard.sales.male}
                         </div>
                         <div className="ms-auto fw-semibold">43%</div>
@@ -440,11 +378,14 @@ export default async function Page() {
                         now={43}
                       />
                     </div>
-
                     <div className="mb-3">
                       <div className="d-flex mb-1">
                         <div>
-                          <FontAwesomeIcon className="me-2" icon={faVenus} fixedWidth />
+                          <FontAwesomeIcon
+                            className="me-2"
+                            icon={faVenus}
+                            fixedWidth
+                          />
                           {dict.dashboard.sales.female}
                         </div>
                         <div className="ms-auto fw-semibold">37%</div>
@@ -456,15 +397,20 @@ export default async function Page() {
                       />
                     </div>
                   </div>
-
                   <div className="mb-3">
                     <div className="d-flex mb-1">
                       <div>
-                        <FontAwesomeIcon className="me-2" icon={faCarBattery} fixedWidth />
+                        <FontAwesomeIcon
+                          className="me-2"
+                          icon={faCarBattery}
+                          fixedWidth
+                        />
                         {dict.dashboard.sales.organic}
                       </div>
                       <div className="ms-auto fw-semibold me-2">63</div>
-                      <div className="text-black-50 dark:text-gray-500 small">(42%)</div>
+                      <div className="text-black-50 dark:text-gray-500 small">
+                        (42%)
+                      </div>
                     </div>
                     <ProgressBar
                       className="progress-thin"
@@ -472,15 +418,20 @@ export default async function Page() {
                       now={42}
                     />
                   </div>
-
                   <div className="mb-3">
                     <div className="d-flex mb-1">
                       <div>
-                        <FontAwesomeIcon className="me-2" icon={faGasPump} fixedWidth />
+                        <FontAwesomeIcon
+                          className="me-2"
+                          icon={faGasPump}
+                          fixedWidth
+                        />
                         {dict.dashboard.sales.facebook}
                       </div>
                       <div className="ms-auto fw-semibold me-2">52.5</div>
-                      <div className="text-black-50 dark:text-gray-500 small">(35%)</div>
+                      <div className="text-black-50 dark:text-gray-500 small">
+                        (35%)
+                      </div>
                     </div>
                     <ProgressBar
                       className="progress-thin"
@@ -488,15 +439,20 @@ export default async function Page() {
                       now={35}
                     />
                   </div>
-
                   <div className="mb-3">
                     <div className="d-flex mb-1">
                       <div>
-                        <FontAwesomeIcon className="me-2" icon={faGasPump} fixedWidth />
+                        <FontAwesomeIcon
+                          className="me-2"
+                          icon={faGasPump}
+                          fixedWidth
+                        />
                         {dict.dashboard.sales.twitter}
                       </div>
                       <div className="ms-auto fw-semibold me-2">22.5</div>
-                      <div className="text-black-50 dark:text-gray-500 small">(15%)</div>
+                      <div className="text-black-50 dark:text-gray-500 small">
+                        (15%)
+                      </div>
                     </div>
                     <ProgressBar
                       className="progress-thin"
@@ -504,15 +460,20 @@ export default async function Page() {
                       now={15}
                     />
                   </div>
-
                   <div className="mb-3">
                     <div className="d-flex mb-1">
                       <div>
-                        <FontAwesomeIcon className="me-2" icon={faChargingStation} fixedWidth />
+                        <FontAwesomeIcon
+                          className="me-2"
+                          icon={faChargingStation}
+                          fixedWidth
+                        />
                         {dict.dashboard.sales.linkedin}
                       </div>
                       <div className="ms-auto fw-semibold me-2">12</div>
-                      <div className="text-black-50 dark:text-gray-500 small">(8%)</div>
+                      <div className="text-black-50 dark:text-gray-500 small">
+                        (8%)
+                      </div>
                     </div>
                     <ProgressBar
                       className="progress-thin"
@@ -522,14 +483,11 @@ export default async function Page() {
                   </div>
                 </div>
               </div>
-
               <br />
-
-              
             </CardBody>
           </Card>
         </div>
       </div>
     </div>
-  )
+  );
 }

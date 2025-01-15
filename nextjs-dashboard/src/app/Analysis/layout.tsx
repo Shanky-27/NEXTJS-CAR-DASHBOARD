@@ -1,14 +1,11 @@
-// layout.tsx
-
-import { Container } from 'react-bootstrap';
-import React from 'react';
-import SidebarProvider from '@/components/Layout/Dashboard/SidebarProvider';
-import SidebarOverlay from '@/components/Layout/Dashboard/Sidebar/SidebarOverlay';
-import Sidebar from '@/components/Layout/Dashboard/Sidebar/Sidebar';
-import SidebarNav from '@/components/Layout/Dashboard/Sidebar/SidebarNav';
-import Header from '@/components/Layout/Dashboard/Header/Header';
-import Footer from '@/components/Layout/Dashboard/Footer/Footer';
-
+import { Container } from 'react-bootstrap'
+import React from 'react'
+import SidebarProvider from '@/components/Layout/Dashboard/SidebarProvider'
+import SidebarOverlay from '@/components/Layout/Dashboard/Sidebar/SidebarOverlay'
+import Sidebar from '@/components/Layout/Dashboard/Sidebar/Sidebar'
+import SidebarNav from '@/components/Layout/Dashboard/Sidebar/SidebarNav'
+import Header from '@/components/Layout/Dashboard/Header/Header'
+import Footer from '@/components/Layout/Dashboard/Footer/Footer'
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <SidebarProvider>
@@ -29,5 +26,4 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     </SidebarProvider>
   );
 };
-
-export default Layout;
+export default Layout

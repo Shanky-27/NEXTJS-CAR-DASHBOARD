@@ -1,23 +1,9 @@
-
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faArrowDown,
   faArrowUp,
-  faCarAlt,
-  faCarBattery,
-  faCarOn,
-  faChargingStation,
   faDownload,
   faEllipsisVertical,
-  faGasPump,
-  faGaugeSimple,
-  faHouseChimneyMedical,
-  faMars,
-  faRecycle,
-  faSearch,
-  faUsers,
-  faVenus,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   Button,
@@ -25,23 +11,10 @@ import {
   Card,
   CardBody,
   CardFooter,
-  CardHeader,
   Dropdown,
-  DropdownItem,
-  DropdownMenu,
   DropdownToggle,
   ProgressBar,
 } from 'react-bootstrap'
-import {
-  faCcAmex,
-  faCcApplePay,
-  faCcPaypal,
-  faCcStripe,
-  faCcVisa,
-  faFacebookF,
-  faLinkedinIn,
-  faTwitter,
-} from '@fortawesome/free-brands-svg-icons'
 import React from 'react'
 import UserChart from '@/components/Page/Dashboard/UserChart'
 import IncomeChart from '@/components/Page/Dashboard/IncomeChart'
@@ -49,11 +22,9 @@ import ConversionChart from '@/components/Page/Dashboard/ConversionChart'
 import SessionChart from '@/components/Page/Dashboard/SessionChart'
 import TrafficChart from '@/components/Page/Dashboard/TrafficChart'
 import { getDictionary } from '@/locales/dictionary'
-
 export default async function Page() {
   const dict = await getDictionary()
-
-  return (
+return (
     <div>
       <div className="row">
         <div className="col-sm-6 col-lg-3">
@@ -118,7 +89,6 @@ export default async function Page() {
             </div>
           </Card>
         </div>
-
         <div className="col-sm-6 col-lg-3">
           <Card bg="warning" text="white" className="mb-4">
             <CardBody className="pb-0 d-flex justify-content-between align-items-start">
@@ -149,7 +119,6 @@ export default async function Page() {
             </div>
           </Card>
         </div>
-
         <div className="col-sm-6 col-lg-3">
           <Card bg="danger" text="white" className="mb-4">
             <CardBody className="pb-0 d-flex justify-content-between align-items-start">
@@ -181,7 +150,6 @@ export default async function Page() {
           </Card>
         </div>
       </div>
-
       <Card className="mb-4">
         <CardBody>
           <div className="d-flex justify-content-between">
