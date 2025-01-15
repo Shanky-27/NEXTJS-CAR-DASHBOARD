@@ -60,6 +60,7 @@
     "traffic": {
       "title": "流量",
       "duration": "2021年1月-7月",
+      "analysis":"分析",
       "option": {
         "day": "日",
         "month": "月",
