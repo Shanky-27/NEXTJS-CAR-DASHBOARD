@@ -7,7 +7,7 @@ import evImage2 from './ev2.jpeg';
 import evImage3 from './ev3.jpeg';
 import evImage4 from './ev4.jpeg';
 
-const imageContainerStyle = {
+const imageContainerStyle: React.CSSProperties = {
   overflow: 'hidden',
   borderRadius: '10px',
   transition: 'transform 0.3s ease',
@@ -16,34 +16,34 @@ const imageContainerStyle = {
   flex: '1 1 300px',
 };
 
-const imageStyle = {
+const imageStyle: React.CSSProperties = {
   objectFit: 'cover',
   width: '100%',
 };
 
-const contentStyle = {
+const contentStyle: React.CSSProperties = {
   padding: '0 20px',
   flex: '1 1 auto',
 };
 
-const rowStyle = {
+const rowStyle: React.CSSProperties = {
   display: 'flex',
   flexWrap: 'wrap',
   alignItems: 'flex-start',
   marginBottom: '40px',
 };
 
-const headingStyle = {
+const headingStyle: React.CSSProperties = {
   fontSize: '2rem',
   marginBottom: '20px',
 };
 
-const subHeadingStyle = {
+const subHeadingStyle: React.CSSProperties = {
   fontSize: '1.5rem',
   margin: '15px 0',
 };
 
-const textStyle = {
+const textStyle: React.CSSProperties = {
   fontSize: '1.1rem',
   lineHeight: '1.6',
 };

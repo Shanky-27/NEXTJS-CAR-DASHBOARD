@@ -7,7 +7,7 @@ import k2 from './k2.jpeg';
 import k3 from './k3.jpeg';
 import k4 from './k4.jpeg';
 
-const imageContainerStyle = {
+const imageContainerStyle: React.CSSProperties = {
   overflow: 'hidden',
   borderRadius: '10px',
   transition: 'transform 0.3s ease',
@@ -16,37 +16,38 @@ const imageContainerStyle = {
   flex: '1 1 300px', // Adjusted for smaller layout
 };
 
-const imageStyle = {
-  objectFit: 'cover',
+const imageStyle: React.CSSProperties = {
+  objectFit: 'cover' as 'cover', // Explicitly cast as 'cover'
   width: '100%',
 };
 
-const contentStyle = {
+const contentStyle: React.CSSProperties = {
   padding: '0 20px',
   flex: '1 1 auto', // Allow text to fill the remaining space
 };
 
-const rowStyle = {
+const rowStyle: React.CSSProperties = {
   display: 'flex',
   flexWrap: 'wrap',
   alignItems: 'flex-start',
   marginBottom: '40px',
 };
 
-const headingStyle = {
+const headingStyle: React.CSSProperties = {
   fontSize: '2rem',
   marginBottom: '20px',
 };
 
-const subHeadingStyle = {
+const subHeadingStyle: React.CSSProperties = {
   fontSize: '1.5rem',
   margin: '15px 0',
 };
 
-const textStyle = {
+const textStyle: React.CSSProperties = {
   fontSize: '1.1rem',
   lineHeight: '1.6',
 };
+
 
 export default function Page() {
   return (
